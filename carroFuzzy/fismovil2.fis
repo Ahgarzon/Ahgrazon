@@ -1,0 +1,52 @@
+[System]
+Name='alphafuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=7
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='alpha'
+Range=[-180 180]
+NumMFs=7
+MF1='right_3':'trimf',[-240 -180 -120]
+MF2='left':'trimf',[120 180 240]
+MF3='center':'trimf',[-20 0 20]
+MF4='right_2':'trimf',[-180 -120 -60]
+MF5='right_1':'trimf',[-120 -60 0]
+MF6='left_1':'trimf',[0 60 120]
+MF7='left_2':'trimf',[60 120 180]
+
+[Input2]
+Name='distancia'
+Range=[0 100]
+NumMFs=2
+MF1='Cerca':'trimf',[-50 0 50]
+MF2='Lejos':'trimf',[50 100 150]
+
+[Output1]
+Name='teta'
+Range=[-30 30]
+NumMFs=7
+MF1='NB':'trimf',[-40 -30 -20]
+MF2='NM':'trimf',[-30 -20 -10]
+MF3='NS':'trimf',[-20 -10 0]
+MF4='ZE':'trimf',[-5 0 5]
+MF5='PS':'trimf',[0 10 20]
+MF6='PM':'trimf',[10 20 30]
+MF7='PB':'trimf',[20 30 40]
+
+[Rules]
+1 0, 7 (1) : 1
+2 0, 1 (1) : 1
+3 0, 4 (1) : 1
+4 0, 6 (1) : 1
+5 0, 5 (1) : 1
+6 0, 3 (1) : 1
+7 0, 2 (1) : 1
